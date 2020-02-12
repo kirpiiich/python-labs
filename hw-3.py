@@ -1,29 +1,28 @@
 ﻿def main():
     import random
-    import time
-    from datetime import timedelta
-    arr = [random.randint(0,1000) for i in range(1000)]
-    print("Unsorted array\n", arr)
+    import timeit
+    arr = [random.randint(10,99) for i in range(40)]
+    print("Unsorted array:\n", arr)
     bubblearr = list(arr)
-    start_time = time.monotonic()
+    start = timeit.default_timer() 
     bubbleSort(bubblearr)
-    end_time = time.monotonic() 
-    print("Time:",timedelta(seconds=end_time - start_time)) 
+    end = timeit.default_timer() 
+    print("Execution time:", "%.8f" % (end - start), "sec") 
     insertionarr = list(arr)
-    start_time = time.monotonic()
+    start = timeit.default_timer() 
     insertionSort(insertionarr)
-    end_time = time.monotonic() 
-    print("Time:",timedelta(seconds=end_time - start_time)) 
+    end = timeit.default_timer()  
+    print("Execution time:", "%.8f" % (end - start), "sec") 
     selectionarr = list(arr)
-    start_time = time.monotonic()
+    start = timeit.default_timer() 
     selectionSort(selectionarr)
-    end_time = time.monotonic() 
-    print("Time:",timedelta(seconds=end_time - start_time)) 
+    end = timeit.default_timer()  
+    print("Execution time:", "%.8f" % (end - start), "sec") 
     shellarr = list(arr)
-    start_time = time.monotonic()
+    start = timeit.default_timer() 
     shellSort(shellarr)
-    end_time = time.monotonic() 
-    print("Time:",timedelta(seconds=end_time - start_time))
+    end = timeit.default_timer()  
+    print("Execution time:", "%.8f" % (end - start), "sec") 
     
 def bubbleSort(arr):
     length = len(arr) - 1
@@ -35,7 +34,7 @@ def bubbleSort(arr):
             if arr[j] > arr[j + 1]:
                 arr[j], arr[j + 1] = arr[j + 1], arr[j]
                 swap+=1
-    print("Bubble Sort:", "Comparisons:", compare, "Swaps:", swap)
+    print("Bubble Sort:\n", "Comparisons:", compare, "Swaps:", swap)
     return arr
 
 def insertionSort(arr):
@@ -48,7 +47,7 @@ def insertionSort(arr):
             swap+=1
             arr[key-1], arr[key] = arr[key], arr[key-1]
             key -= 1
-    print("Insertion Sort:", "Comparisons:", compare, "Swaps:", swap)
+    print("Insertion Sort:\n", "Comparisons:", compare, "Swaps:", swap)
     return arr
 
 def selectionSort(arr):
@@ -65,7 +64,7 @@ def selectionSort(arr):
         if i != min_ind:
             swap+=1
             arr[i], arr[min_ind] = arr[min_ind], arr[i]
-    print("Selection Sort:", "Comparisons:", compare, "Swaps:", swap)
+    print("Selection Sort:\n", "Comparisons:", compare, "Swaps:", swap)
     return arr
     
 def shellSort(arr):
@@ -81,7 +80,7 @@ def shellSort(arr):
                 swap+=1
                 j-=step
         step//=2
-    print("Shell Sort:", "Comparisons:", compare, "Swaps:", swap)
+    print("Shell Sort:\n", "Comparisons:", compare, "Swaps:", swap)
     return arr
 
 main()

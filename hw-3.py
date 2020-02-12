@@ -4,26 +4,26 @@
     arr = [random.randint(10,99) for i in range(40)]
     print("Unsorted array:\n", arr)
     bubblearr = list(arr)
-    start = timeit.default_timer() 
+    start = timeit.default_timer()
     bubbleSort(bubblearr)
-    end = timeit.default_timer() 
-    print("Execution time:", "%.8f" % (end - start), "sec") 
+    end = timeit.default_timer()
+    print("Execution time:", "%.8f" % (end - start), "sec")
     insertionarr = list(arr)
-    start = timeit.default_timer() 
+    start = timeit.default_timer()
     insertionSort(insertionarr)
-    end = timeit.default_timer()  
-    print("Execution time:", "%.8f" % (end - start), "sec") 
+    end = timeit.default_timer()
+    print("Execution time:", "%.8f" % (end - start), "sec")
     selectionarr = list(arr)
-    start = timeit.default_timer() 
+    start = timeit.default_timer()
     selectionSort(selectionarr)
-    end = timeit.default_timer()  
-    print("Execution time:", "%.8f" % (end - start), "sec") 
+    end = timeit.default_timer()
+    print("Execution time:", "%.8f" % (end - start), "sec")
     shellarr = list(arr)
-    start = timeit.default_timer() 
+    start = timeit.default_timer()
     shellSort(shellarr)
-    end = timeit.default_timer()  
-    print("Execution time:", "%.8f" % (end - start), "sec") 
-    
+    end = timeit.default_timer()
+    print("Execution time:", "%.8f" % (end - start), "sec")
+
 def bubbleSort(arr):
     length = len(arr) - 1
     compare = 0
@@ -53,7 +53,7 @@ def insertionSort(arr):
 def selectionSort(arr):
     compare = 0
     swap = 0
-    length = len(arr) - 1 
+    length = len(arr) - 1
     for i in range(0, length):
         min_ind = i
         for j in range(i, len(arr)):
@@ -66,7 +66,7 @@ def selectionSort(arr):
             arr[i], arr[min_ind] = arr[min_ind], arr[i]
     print("Selection Sort:\n", "Comparisons:", compare, "Swaps:", swap)
     return arr
-    
+
 def shellSort(arr):
     compare = 0
     swap = 0
